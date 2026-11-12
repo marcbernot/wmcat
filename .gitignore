@@ -8,4 +8,5 @@ _output/
 *.mat
 scratch/
 .jupyterlite.doit.db
-pypi/
+lite/.cache/
+lite/pypi/
