@@ -1,0 +1,16 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "wmcat"
+version = "0.0.1"
+description = "Catalog and loader for watermark thermography files hosted on Zenodo"
+requires-python = ">=3.11"
+dependencies = ["pandas", "numpy", "scipy", "matplotlib"]
+
+[project.optional-dependencies]
+local = ["pooch"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/wmcat"]

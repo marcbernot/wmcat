@@ -1,0 +1,36 @@
+[workspace]
+name = "wmcat"
+channels = ["conda-forge"]
+platforms = ["linux-64", "osx-arm64", "osx-64", "win-64"]
+
+[dependencies]
+python = "3.12.*"
+pandas = "*"
+numpy = "*"
+scipy = "*"
+matplotlib-base = "*"
+pooch = "*"
+jupyterlab = "*"
+
+[pypi-dependencies]
+wmcat = { path = ".", editable = true }
+
+[tasks]
+lab = "jupyter lab notebooks"
+sanity = "python tests/sanity.py"
+
+[feature.lite.dependencies]
+python = "3.12.*"
+jupyterlite-core = "*"
+jupyterlite-pyodide-kernel = "*"
+python-build = "*"
+hatchling = "*"
+jupyter_server = "*"
+
+[feature.lite.tasks]
+build-wheel = "python -m build --wheel --no-isolation --outdir lite/pypi ."
+build-lite = { cmd = "jupyter lite build --contents ../notebooks --output-dir ../_output", cwd = "lite", depends-on = ["build-wheel"] }
+serve-lite = { cmd = "python -m http.server 8000 --directory _output" }
+
+[environments]
+lite = { features = ["lite"], no-default-feature = true }

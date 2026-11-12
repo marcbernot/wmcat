@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+.pixi/
+dist/
+_output/
+*.mat
+scratch/
+.jupyterlite.doit.db
+pypi/

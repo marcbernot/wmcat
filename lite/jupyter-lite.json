@@ -1,0 +1,18 @@
+{
+  "jupyter-lite-schema-version": 0,
+  "jupyter-config-data": {
+    "litePluginSettings": {
+      "@jupyterlite/pyodide-kernel-extension:kernel": {
+        "loadPyodideOptions": {
+          "packages": [
+            "numpy",
+            "pandas",
+            "scipy",
+            "matplotlib",
+            "../../../../pypi/wmcat-0.0.1-py3-none-any.whl"
+          ]
+        }
+      }
+    }
+  }
+}

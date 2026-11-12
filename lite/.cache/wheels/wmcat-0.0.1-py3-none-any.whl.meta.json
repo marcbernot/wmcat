@@ -1,0 +1,24 @@
+{
+  "name": "wmcat",
+  "release": {
+    "comment_text": "",
+    "digests": {
+      "md5": "00bd98cf42309efa1a75422212c12d30",
+      "sha256": "fdf8922d109b3635e8cfc6d80116322f3d86fe8488e911dd0cdc6efc5b33ec54"
+    },
+    "downloads": -1,
+    "filename": "wmcat-0.0.1-py3-none-any.whl",
+    "has_sig": false,
+    "md5_digest": "00bd98cf42309efa1a75422212c12d30",
+    "packagetype": "bdist_wheel",
+    "python_version": "py3",
+    "requires_python": ">=3.11",
+    "size": 5503,
+    "upload_time": "2026-11-12T13:21:49.216819Z",
+    "upload_time_iso_8601": "2026-11-12T13:21:49.216819Z",
+    "url": "./wmcat-0.0.1-py3-none-any.whl",
+    "yanked": false,
+    "yanked_reason": null
+  },
+  "version": "0.0.1"
+}
