@@ -14,3 +14,6 @@ local = ["pooch"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/wmcat"]
+
+[tool.ruff]
+line-length = 100

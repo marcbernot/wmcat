@@ -11,6 +11,7 @@ scipy = "*"
 matplotlib-base = "*"
 pooch = "*"
 jupyterlab = "*"
+pre-commit = ">=4.7.0,<5"
 
 [pypi-dependencies]
 wmcat = { path = ".", editable = true }
