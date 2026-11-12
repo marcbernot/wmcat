@@ -28,7 +28,7 @@ class Watermark:
     meta: dict = field(default_factory=dict)
 
     @classmethod
-    def from_bytes(cls, raw: bytes, meta: dict | None = None) -> "Watermark":
+    def from_bytes(cls, raw: bytes, meta: dict | None = None) -> Watermark:
         from scipy.io import loadmat
 
         mat = loadmat(io.BytesIO(raw), squeeze_me=True)
@@ -54,7 +54,11 @@ class Watermark:
             return img
         md = self.data.get("Metadata", {})
         r1, r2 = md.get("Ref1"), md.get("Ref2")
-        if isinstance(r1, np.ndarray) and isinstance(r2, np.ndarray) and r1.shape == img.shape == r2.shape:
+        if (
+            isinstance(r1, np.ndarray)
+            and isinstance(r2, np.ndarray)
+            and r1.shape == img.shape == r2.shape
+        ):
             img = (img - r1) / np.where(r2 != r1, r2.astype(np.float32) - r1, 1.0)
         if md.get("GaussKorr"):
             from scipy.ndimage import gaussian_filter

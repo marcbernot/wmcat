@@ -14,10 +14,12 @@ from .watermark import Watermark
 IN_PYODIDE = sys.platform == "emscripten"
 
 
-def open_catalog(path: str | Path | None = None) -> "WatermarkCatalog":
+def open_catalog(path: str | Path | None = None) -> WatermarkCatalog:
     """Open a catalog CSV. Default: the sample catalog bundled with the package."""
     if path is None:
-        path = io.StringIO((resources.files("wmcat") / "data" / "sample_catalog.csv").read_text("utf-8"))
+        path = io.StringIO(
+            (resources.files("wmcat") / "data" / "sample_catalog.csv").read_text("utf-8")
+        )
     return WatermarkCatalog(pd.read_csv(path, dtype=str, keep_default_na=False))
 
 
@@ -27,7 +29,7 @@ class WatermarkCatalog:
     def __init__(self, df: pd.DataFrame):
         self.df = df.reset_index(drop=True)
 
-    def search(self, exact: bool = False, **filters) -> "WatermarkCatalog":
+    def search(self, exact: bool = False, **filters) -> WatermarkCatalog:
         """Filter rows. ``search(motif="lily")`` is a case-insensitive substring match;
         ``search(wm_type="01f", exact=True)`` matches the whole value only
         (so ``01f`` does not match ``01f+02f``)."""
@@ -54,7 +56,9 @@ class WatermarkCatalog:
         return f"WatermarkCatalog: {len(self)} watermarks\n{self.df[cols].head(10).to_string()}"
 
     def _repr_html_(self) -> str:
-        return f"<p><b>WatermarkCatalog</b>: {len(self)} watermarks</p>" + self.df.head(10).to_html()
+        return (
+            f"<p><b>WatermarkCatalog</b>: {len(self)} watermarks</p>" + self.df.head(10).to_html()
+        )
 
     # --- loading -------------------------------------------------------------------------
 

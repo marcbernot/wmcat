@@ -3,5 +3,5 @@
 from .catalog import WatermarkCatalog, open_catalog
 from .watermark import Watermark
 
-__all__ = ["open_catalog", "WatermarkCatalog", "Watermark"]
+__all__ = ["Watermark", "WatermarkCatalog", "open_catalog"]
 __version__ = "0.0.1"

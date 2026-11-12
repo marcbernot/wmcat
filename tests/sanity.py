@@ -6,7 +6,7 @@ cat = open_catalog()
 assert len(cat) == 10, len(cat)
 assert len(cat.search(holding_institution="SBB")) == 2
 assert len(cat.search(motif="lily")) == 2
-assert len(cat.search(wm_type="01")) == 7          # substring: 01 and 01f
+assert len(cat.search(wm_type="01")) == 7  # substring: 01 and 01f
 assert len(cat.search(wm_type="01", exact=True)) == 3
 assert len(cat.search(wm_type="01f", exact=True)) == 4
 assert len(cat.search(holding_institution="SLUB", wm_type="02f", exact=True)) == 3
